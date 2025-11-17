@@ -23,13 +23,15 @@ pip install -U torch torchvision torch_tensorrt --index-url https://download.pyt
 ```
 pip install -U vsdrba_distilled==1.0.0
 ```
+Note: Please make sure to install all dependencies listed in the Dependencies section before performing the steps in the Installation section.
+
 If you want to download all models at once, run `python -m vsdrba_distilled`. If you prefer to only download the model you
 specified at first run, set `auto_download=True` in `drba_distilled()`.
 
 ## Usage
 ```python
 from vsdrba_distilled import drba_distilled
-ret = drba_distilled(clip)
+ret = drba_distilled(clip, trt=True, factor_num=2, factor_den=1, scale=1.0, model="v1", auto_download=True)
 ```
 
 See `__init__.py` for the description of the parameters.
