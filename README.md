@@ -17,8 +17,7 @@
 To install the latest stable version of PyTorch, Torch-TensorRT and cupy, run:
 ```
 pip install -U packaging setuptools wheel
-pip install -U torch torchvision torch_tensorrt --index-url https://download.pytorch.org/whl/cu126 --extra-index-url https://pypi.nvidia.com
-pip install -U cupy-cuda12x
+pip install -U torch torchvision torch_tensorrt --index-url https://download.pytorch.org/whl/cu128 --extra-index-url https://pypi.nvidia.com
 ```
 
 ## Installation
@@ -31,7 +30,6 @@ specified at first run, set `auto_download=True` in `drba_distilled()`.
 ## Usage
 ```python
 from vsdrba_distilled import drba_distilled
-
 ret = drba_distilled(clip)
 ```
 
@@ -40,6 +38,7 @@ See `__init__.py` for the description of the parameters.
 
 ## Benchmarks
 
-| model                | scale | os    | hardware           | arch                                                       | fps 720 | fps 1080 | vram 720 | vram 1080 | backend                                                                        | verified output                    | batch | level | streams | threads | onnx      | onnxslim / onnxsim | onnx shape  | trtexec shape | precision | usage                                                                                               |
-|----------------------| ----- | ----- |--------------------|------------------------------------------------------------|---------|----------|----------|-----------|--------------------------------------------------------------------------------| ---------------------------------- | ----- | ----- |---------|---------| --------- | ------------------ | ----------- | ------------- | --------- |-----------------------------------------------------------------------------------------------------|
-| drba_distilled v1 | 2x    | Linux | rtx5070 / 14600kf | [drba_distilled](https://github.com/routineLife1/DistilDRBA)   | 420     | 120       | 1.7gb    | 3.7gb     | trt 10.8, torch 20241231+cu126, torch_trt 20250102+cu126 (routineLife1 vsdrba) | yes, works                         | 1     | 5     | -       | 8       | -         | -                  | -           | static        | RGBH      | drba_distilled(clip, trt=True, trt_static_shape=True, model="v1", trt_optimization_level=5, sc=False) |
+| model                  | scale | os    | hardware           | arch                                                       | speed(fps) 720 | speed(fps) 1080 | vram 720 | vram 1080 | backend         | verified output                    | batch | level | streams | threads| trtexec shape | precision | usage                                                                                               |
+|------------------------| ----- | ----- |--------------------|------------------------------------------------------------|----------------|-----------------|----------|-----------|-----------------| ---------------------------------- | ----- |-------|---------|-------| ------------- | --------- |-----------------------------------------------------------------------------------------------------|
+| drba_distilled v1      | 2x    | Linux | rtx5070 / 14600kf | [drba_distilled](https://github.com/routineLife1/DistilDRBA)   | 251            | 115             | 1.8gb    | 2.9gb     | torch+trt cu128 | yes, works                         | 1     | 5     | -       | 1 | static        | RGBH      | drba_distilled(clip, trt=True, model="v1", trt_optimization_level=5) |
+| drba_distilled v2_lite | 2x    | Linux | rtx5070 / 14600kf | [drba_distilled](https://github.com/routineLife1/DistilDRBA)   | 999+           | 700             | -        | -         | torch+trt cu128 | yes, works                         | 1     | 5     | -       | 1 | static        | RGBH      | drba_distilled(clip, trt=True, model="v1", trt_optimization_level=5) |
