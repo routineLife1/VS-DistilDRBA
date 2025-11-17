@@ -42,3 +42,6 @@ See `__init__.py` for the description of the parameters.
 |------------------------| ----- | ----- |--------------------|------------------------------------------------------------|----------------|-----------------|----------|-----------|-----------------| ---------------------------------- | ----- |-------|---------|-------| ------------- | --------- |-----------------------------------------------------------------------------------------------------|
 | drba_distilled v1      | 2x    | Linux | rtx5070 / 14600kf | [drba_distilled](https://github.com/routineLife1/DistilDRBA)   | 251            | 115             | 1.8gb    | 2.9gb     | torch+trt cu128 | yes, works                         | 1     | 5     | -       | 1 | static        | RGBH      | drba_distilled(clip, trt=True, model="v1", trt_optimization_level=5) |
 | drba_distilled v2_lite | 2x    | Linux | rtx5070 / 14600kf | [drba_distilled](https://github.com/routineLife1/DistilDRBA)   | 999+           | 700             | -        | -         | torch+trt cu128 | yes, works                         | 1     | 5     | -       | 1 | static        | RGBH      | drba_distilled(clip, trt=True, model="v1", trt_optimization_level=5) |
+
+## 🤗 Acknowledgement
+This project is supported by [SVFI](https://doc.svfi.group/) Development Team.
