@@ -27,7 +27,7 @@ def download_model(url: str) -> None:
 
 
 if __name__ == "__main__":
-    url = "https://github.com/routineLife1/VS-DistilDRBA/releases/download/model/"
+    url = "https://github.com/routineLife1/VS-DistilDRBA/releases/download/weights/"
     models = [
         "v1",
         "v2_lite",
