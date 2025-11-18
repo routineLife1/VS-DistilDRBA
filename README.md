@@ -9,14 +9,14 @@
 - [PyTorch](https://pytorch.org/get-started/) 2.6.0 or later
 - [VapourSynth](http://www.vapoursynth.com/) R66 or later
 
-`trt` requires additional packages:
+`trt` requires additional packages: (If encountering issues, you may skip installing this dependency and specify trt=False when using drba.)
 - [TensorRT](https://developer.nvidia.com/tensorrt) 10.7.0.post1 or later
 - [Torch-TensorRT](https://pytorch.org/TensorRT/) 2.6.0 or later
 
 To install the latest stable version of PyTorch, Torch-TensorRT and cupy, run:
 ```
 pip install -U packaging setuptools wheel
-pip install -U torch torchvision torch_tensorrt --index-url https://download.pytorch.org/whl/cu128 --extra-index-url https://pypi.nvidia.com
+pip install -U torch torchvision torch-tensorrt --index-url https://download.pytorch.org/whl/cu128 --extra-index-url https://pypi.nvidia.com
 ```
 
 ## Installation
